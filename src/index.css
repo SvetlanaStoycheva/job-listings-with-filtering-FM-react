@@ -3,32 +3,34 @@
 Fonts
 ===============
 */
-@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Spartan:wght@500;700&display=swap');
 
 /*
 =============== 
 Variables
 ===============
 */
-
 :root {
   /* primary/main color */
-  --clr-primary-soft-blue: hsl(231, 69%, 60%);
-  --clr-primary-soft-red: hsl(0, 94%, 66%);
-  --clr-primary-grayish-blue: hsl(229, 8%, 60%);
-  --clr-primary-dark-grayish-blue: hsl(231, 5%, 29%);
-  --clr-primary-very-dark-blue: hsl(229, 31%, 21%);
+  --clr-primary-desaturated-dark-cyan: hsl(180, 29%, 50%);
+  /*  */
+  --clr-light-grayish-cyan-bg: hsl(180, 52%, 96%);
+  --clr-light-grayish-cyan-tablets: hsl(180, 31%, 95%);
+  --clr-dark-grayish-cyan: hsl(180, 8%, 52%);
+  --clr-very-dark-grayish-cyan: hsl(180, 14%, 20%);
 
-  --ff-primary: 'Rubik', sans-serif;
+  --ff-primary: 'Spartan', sans-serif;
   --transition: all 0.3s linear;
   --spacing: 0.1rem;
   --radius: 0.25rem;
-  --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  --light-shadow: 0 5px 15px hsl(180, 30%, 72%);
+  /* --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); */
   --dark-blue-shadow: 0 5px 15px rgba(83, 104, 223, 0.2);
-  --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  --dark-shadow: 0 5px 15px hsl(180, 29%, 50%);
+  /* --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); */
   --max-width: 1440px;
   --min-width: 375px;
-  --fs-size-sm: 1.125rem;
+  --fs-size-sm: 15px;
 }
 /*
 =============== 
@@ -119,3 +121,67 @@ p {
 Styles
 ===============
 */
+.main-container {
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--clr-light-grayish-cyan-bg);
+}
+/*
+=============== 
+Header
+===============
+*/
+.header-bg-container {
+  width: 100vw;
+  height: 12rem;
+  background-image: url(./images/bg-header-mobile.svg);
+  background-size: cover;
+  background-color: var(--clr-primary-desaturated-dark-cyan);
+}
+.filter-btn {
+  border: transparent;
+  color: var(--clr-primary-desaturated-dark-cyan);
+  background: var(--clr-light-grayish-cyan-bg);
+  padding: 0.3rem 0.5rem;
+  font-weight: 700;
+}
+.filter-btn-icon {
+  background: var(--clr-primary-desaturated-dark-cyan);
+  color: white;
+  display: grid;
+  place-items: center;
+  padding: 0.12rem;
+  font-size: 1.2rem;
+  transition: var(--transition);
+  cursor: pointer;
+}
+.filter-btn-icon:hover {
+  background: var(--clr-very-dark-grayish-cyan);
+}
+.single-filter-btn {
+  display: flex;
+  align-items: center;
+}
+.clear-btn {
+  background: transparent;
+  border: transparent;
+  color: var(--clr-primary-desaturated-dark-cyan);
+  transition: var(--transition);
+  text-decoration: underline solid transparent;
+  cursor: pointer;
+  font-weight: 700;
+}
+.clear-btn:hover {
+  text-decoration: underline solid var(--clr-primary-desaturated-dark-cyan);
+}
+.btns-container {
+  width: 90vw;
+  margin: 0 auto;
+  background: white;
+  border-radius: 6px;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  margin-top: -2rem;
+  box-shadow: var(--light-shadow);
+}
