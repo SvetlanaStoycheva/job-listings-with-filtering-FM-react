@@ -16,6 +16,7 @@ Variables
   /*  */
   --clr-light-grayish-cyan-bg: hsl(180, 52%, 96%);
   --clr-light-grayish-cyan-tablets: hsl(180, 31%, 95%);
+  --clr-light-gray: hsl(180, 4%, 76%);
   --clr-dark-grayish-cyan: hsl(180, 8%, 52%);
   --clr-very-dark-grayish-cyan: hsl(180, 14%, 20%);
 
@@ -24,10 +25,8 @@ Variables
   --spacing: 0.1rem;
   --radius: 0.25rem;
   --light-shadow: 0 5px 15px hsl(180, 30%, 72%);
-  /* --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); */
   --dark-blue-shadow: 0 5px 15px rgba(83, 104, 223, 0.2);
   --dark-shadow: 0 5px 15px hsl(180, 29%, 50%);
-  /* --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); */
   --max-width: 1440px;
   --min-width: 375px;
   --fs-size-sm: 15px;
@@ -123,12 +122,11 @@ Styles
 */
 .main-container {
   width: 100vw;
-  height: 100vh;
   background-color: var(--clr-light-grayish-cyan-bg);
 }
 /*
 =============== 
-Header
+Page Header with filter buttons
 ===============
 */
 .header-bg-container {
@@ -144,6 +142,7 @@ Header
   background: var(--clr-light-grayish-cyan-bg);
   padding: 0.3rem 0.5rem;
   font-weight: 700;
+  letter-spacing: var(--spacing);
 }
 .filter-btn-icon {
   background: var(--clr-primary-desaturated-dark-cyan);
@@ -184,4 +183,109 @@ Header
   padding: 1rem 2rem;
   margin-top: -2rem;
   box-shadow: var(--light-shadow);
+}
+
+/*
+=============== 
+Job container
+===============
+*/
+.jobs-container {
+  margin: 4rem 2rem;
+}
+.single-job-container {
+  position: relative;
+  background: white;
+  border-radius: 6px;
+  box-shadow: var(--light-shadow);
+  margin-bottom: 4rem;
+  padding: 2rem;
+  padding-top: 4rem;
+}
+.single-job-container-border {
+  border-left: solid 0.5rem var(--clr-primary-desaturated-dark-cyan);
+}
+.company-logo {
+  position: absolute;
+  top: -2.5rem;
+}
+.job-info-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.2rem;
+}
+.job-info-header p {
+  margin-bottom: 0;
+  margin-right: 2rem;
+  color: var(--clr-primary-desaturated-dark-cyan);
+}
+.new-flag-btn,
+.featured-btn {
+  border: transparent;
+  background: var(--clr-primary-desaturated-dark-cyan);
+  color: white;
+  padding: 0.4rem 0.6rem 0.3rem 0.6rem;
+  border-radius: 16rem;
+  margin-right: 1rem;
+  letter-spacing: var(--spacing);
+}
+.featured-btn {
+  background: var(--clr-very-dark-grayish-cyan);
+}
+.job-info h3 {
+  color: var(--clr-very-dark-grayish-cyan);
+  cursor: pointer;
+  transition: var(--transition);
+}
+.job-info h3:hover {
+  color: var(--clr-primary-desaturated-dark-cyan);
+}
+.job-info-footer {
+  display: flex;
+  color: var(--clr-dark-grayish-cyan);
+}
+.job-info-footer span {
+  margin: 0.5rem;
+  margin-top: -1.2rem;
+  font-size: 2rem;
+}
+.line {
+  border-top: solid 2px var(--clr-light-gray);
+  margin-bottom: 1.2rem;
+}
+.languages-btn {
+  padding: 0.5rem;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  transition: var(--transition);
+  border-radius: 6px;
+}
+.languages-btn:hover {
+  background: var(--clr-primary-desaturated-dark-cyan);
+  color: var(--clr-light-grayish-cyan-bg);
+}
+@media screen and (min-width: 1140px) {
+  .line {
+    display: none;
+  }
+  .company-logo {
+    position: relative;
+    top: 0;
+  }
+  .single-job-container {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 2rem;
+  }
+  .languages {
+    width: 35vw;
+  }
+  .logo-info {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: 2rem;
+    align-items: center;
+  }
 }
