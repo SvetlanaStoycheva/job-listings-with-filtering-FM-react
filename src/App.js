@@ -1,13 +1,14 @@
 import React from 'react';
 import Header from './Header';
-import { data } from './data';
+import { useGlobalContext } from './context';
 
 function App() {
+  const { handleChoosenFilter, currentDisplayedJobs } = useGlobalContext();
   return (
     <main className='main-container'>
       <Header />
       <div className='jobs-container'>
-        {data.map((i) => {
+        {currentDisplayedJobs.map((i) => {
           const {
             company,
             contract,
@@ -63,7 +64,11 @@ function App() {
               <div className='languages'>
                 {allLanguagesButtons.map((l, index) => {
                   return (
-                    <button key={index} className='filter-btn languages-btn'>
+                    <button
+                      key={index}
+                      className='filter-btn languages-btn'
+                      onClick={handleChoosenFilter}
+                    >
                       {l}
                     </button>
                   );
