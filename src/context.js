@@ -13,23 +13,23 @@ const AppProvider = ({ children }) => {
     setFilters([...filters, btnText]);
   };
 
-  //filter the data when filters are changed
+  //filter the data when filters are changed; show anly the jobs that containes all filters
   const filterData = () => {
     const filteredJobs = [];
+    currentDisplayedJobs.map((job) => {
+      const { role, position, level, tools, languages } = job;
+      const itemBtns = [role, position, level, ...tools, ...languages];
 
-    filters.map((filter) => {
-      currentDisplayedJobs.map((job) => {
-        const { role, position, level, tools, languages } = job;
-        const itemBtns = [role, position, level, ...tools, ...languages];
-        itemBtns.map((itemBtn) => {
-          if (itemBtn === filter) {
-            filteredJobs.push(job);
-          }
-        });
-      });
+      //check if job buttons contains all the filters
+      const checker = (btns, currentFilters) =>
+        currentFilters.every((f) => btns.includes(f));
+      const res = checker(itemBtns, filters);
+      if (res) {
+        filteredJobs.push(job);
+      }
     });
+    console.log(filters);
     console.log(filteredJobs);
-
     setCurrentDisplayedJobs(filteredJobs);
   };
   useEffect(() => {
@@ -39,17 +39,27 @@ const AppProvider = ({ children }) => {
   }, [filters]);
 
   //when clear btn in header is clicked; clear filters, show the full joblist
-  const clearFilters = () => {
+  const clearAllFilters = () => {
     setFilters([]);
     setCurrentDisplayedJobs(data);
   };
+
+  //remove filter when close btn is clicked in the header; show the corresponding job list after the remove.
+  const removeFilter = (f) => {
+    const newFilters = filters.filter((filter) => filter !== f);
+    setFilters(newFilters);
+    //we need to first have the whole job list in order to filter it with reduced number of filters after deleting one or more of them
+    setCurrentDisplayedJobs(data);
+  };
+
   return (
     <AppContext.Provider
       value={{
         handleChoosenFilter,
         filters,
         currentDisplayedJobs,
-        clearFilters,
+        clearAllFilters,
+        removeFilter,
       }}
     >
       {children}

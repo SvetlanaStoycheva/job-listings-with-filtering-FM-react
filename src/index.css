@@ -194,6 +194,11 @@ Page Header with filter buttons
   flex-wrap: wrap;
   align-content: center;
 }
+@media screen and (min-width: 1140px) {
+  .single-filter-btn {
+    margin-bottom: 0;
+  }
+}
 
 /*
 =============== 
