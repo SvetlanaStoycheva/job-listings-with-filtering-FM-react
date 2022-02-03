@@ -28,8 +28,8 @@ const AppProvider = ({ children }) => {
         filteredJobs.push(job);
       }
     });
-    console.log(filters);
-    console.log(filteredJobs);
+    // console.log(filters);
+    // console.log(filteredJobs);
     setCurrentDisplayedJobs(filteredJobs);
   };
   useEffect(() => {
